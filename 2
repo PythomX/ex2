@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace __
+{
+	class Program
+	{
+    	static void Main(string[] args)
+    	{
+        	int[] vet = new int[3];
+        	int i = 0, cont = 0, c;
+ 
+        	Multp(vet, i, ref cont);
+ 
+        	Console.WriteLine($"Numeros negativos: {cont}");
+        	Console.ReadKey();
+    	}
+ 
+    	private static int Multp(int[] vet, int i, ref int cont )
+    	{
+        	
+        	if (i < vet.Length)
+        	{
+            	Console.Write("Informe um numero: ");
+            	vet[i] = Convert.ToInt32(Console.ReadLine());
+ 
+            	if (vet[i] < 0)
+            	{
+                	vet[i] = vet[i] * -1;
+                	cont++;
+                	Multp(vet, i + 1, ref cont);
+            	}
+            	else if (vet[i] > 0)
+            	{
+                	Multp(vet, i + 1, ref cont);
+            	}
+            	
+        	}
+    	    return cont;
+    	}
+	}
+}
+
+
